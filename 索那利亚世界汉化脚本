@@ -1,0 +1,240 @@
+local Translations = {
+    -- 左侧菜单栏
+    ["Home"] = "主页",
+    ["Custom Stats"] = "自定义属性",
+    ["自动Farm"] = "自动农场",
+    ["Artifacts 自动Farm"] = "遗物自动农场",
+    ["自动Nest"] = "自动巢穴",
+    ["传送"] = "传送",
+    ["Event"] = "事件",
+    ["物品展示"] = "物品展示",
+    ["其他"] = "其他",
+
+    -- 主页选项
+    ["Set as autoload"] = "设为自动加载",
+    ["Visual"] = "视觉",
+    ["Remove Fog"] = "移除迷雾",
+    ["Clear the fog from the map"] = "清除地图迷雾",
+    ["Remove Weather Effects"] = "移除天气效果",
+    ["Removes weather effects like Rain, Snow, etc."] = "移除雨、雪等天气效果",
+    ["Remove Disaster Effects"] = "移除灾难效果",
+    ["Removes disaster effects like Blood Rain, Blizzard, etc."] = "移除血雨、暴风雪等灾难效果",
+    ["Hide Ping and FPS"] = "隐藏延迟和帧数",
+    ["Auto AFK"] = "自动挂机",
+    ["Custom Name"] = "自定义名称",
+    ["Hide Username (Client-Sided)"] = "隐藏用户名（客户端）",
+    ["Any other user can see your username unless you are going to expose your real username"] = "其他用户仍可见你的用户名，除非你选择暴露真实用户名",
+    ["Discord"] = "Discord",
+    ["Copy discord link"] = "复制Discord链接",
+    ["Get information about updates for our discord server!"] = "获取我们Discord服务器的更新信息！",
+
+    -- 传送选项
+    ["Mountains"] = "山脉",
+    ["Tundra"] = "苔原",
+    ["Seaweed Depths"] = "海藻深渊",
+    ["Flower Cove"] = "花海",
+    ["Mesa"] = "平顶山",
+    ["Pride Rocks"] = "骄傲石",
+    ["Volcano Island"] = "火山岛",
+    ["Desert"] = "沙漠",
+    ["Grassy Shoal"] = "青草浅滩",
+    ["Reedy Drop"] = "芦苇瀑布",
+    ["Redwoods"] = "红木林",
+    ["Jungle"] = "丛林",
+    ["Agua Sandbar"] = " Agua 沙洲",
+    ["Central Rudkina"] = "中央 Rudkina",
+    ["Swamp Hill"] = "沼泽山丘",
+    ["Coral Reef"] = "珊瑚礁",
+    ["Region传送"] = "区域传送",
+    ["Custom传送"] = "自定义传送",
+    ["Custom Location"] = "自定义位置",
+    ["Tele to Location"] = "传送到位置",
+    ["Location Name"] = "位置名称",
+    ["Enter Name"] = "输入名称",
+    ["Save Location"] = "保存位置",
+    ["Delete Location"] = "删除位置",
+
+    -- 自动Farm选项
+    ["Gacha Tokens"] = "扭蛋代币",
+    ["Automatically collects all the gacha tokens you"] = "自动收集所有扭蛋代币",
+    ["Teleport"] = "传送",
+    ["Automatically teleport for the selected target"] = "为所选目标自动传送",
+    ["Mush自动Farm"] = "蘑菇自动农场",
+    ["Region Missions Status"] = "区域任务状态",
+    ["Offline"] = "离线",
+    ["Automatically completes the missions for you"] = "自动为你完成任务",
+    ["Recommended"] = "推荐",
+    ["Select Creature"] = "选择生物",
+    ["Refresh Creature List"] = "刷新生物列表",
+    ["Death Points Target"] = "死亡点数目标",
+    ["Survival自动Farm"] = "生存自动农场",
+    ["Eat"] = "进食",
+    ["Automatically feed your creature from nearby food sources"] = "自动从附近的食物来源喂养你的生物",
+    ["Drink"] = "饮水",
+    ["Prevent your creature from getting thirsty"] = "防止你的生物口渴",
+    ["Mud Roll"] = "泥浆翻滚",
+    ["Automatically clean your creature from mud"] = "自动清洁你的生物身上的泥浆",
+    ["Token自动Farm"] = "代币自动农场",
+    ["Mutation/Traits自动Farm"] = "变异/特性自动农场",
+    ["Mutation"] = "变异",
+    ["Automatically select any random trait in the dropdown menu that the creature will have"] = "自动在下拉菜单中选择生物将拥有的随机特性",
+    ["Antlers"] = "鹿角",
+    ["Glow"] = "发光",
+    ["Mutation!"] = "变异！",
+    ["Automatically search for the selected mutation!"] = "自动搜索所选变异！",
+    ["Traits"] = "特性",
+    ["Implant"] = "植入",
+    ["Automatically search for the selected implant!"] = "自动搜索所选植入物！",
+
+    -- 自定义属性选项
+    ["Auto Nest"] = "自动巢穴",
+    ["Enable Nest"] = "启用巢穴",
+    ["Create the egg and invite your friends automatically"] = "自动创建蛋并邀请你的朋友",
+    ["Type of Invitation"] = "邀请类型",
+    ["Friends"] = "好友",
+    ["Accept Nest Request"] = "接受巢穴请求",
+    ["Accept any type of invitation to nest and be teleported"] = "接受任何类型的巢穴邀请并传送",
+    ["Warp To Nest"] = "传送到巢穴",
+    ["Re-spawn Nest"] = "重新生成巢穴",
+    ["Extra"] = "额外",
+    ["Nest Upgrade"] = "巢穴升级",
+    ["Collect resources to upgrade your nest!"] = "收集资源来升级你的巢穴！",
+    ["Auto Shelter"] = "自动庇护所",
+    ["Prevents you from taking environmental damage, or getting any status effects"] = "防止你受到环境伤害或任何状态效果",
+    ["Auto Emote"] = "自动表情",
+    ["Automatically emotes when you sit"] = "当你坐下时自动表情",
+    ["Auto Stretch/Sleep"] = "自动伸展/睡眠",
+    ["Automatically stretch or sleep when you sit"] = "当你坐下时自动伸展或睡眠",
+    ["Auto Unsheathed Wings"] = "自动展开翅膀",
+    ["Will make your wings unsheathed when you sit"] = "当你坐下时展开翅膀",
+    ["Auto Sit"] = "自动坐下",
+    ["Will make you immerse to the animation when you sit"] = "当你坐下时进入动画",
+    ["Auto Nest Ready"] = "自动巢穴准备",
+    ["You need a creature with the nesting enabled to another player class"] = "你需要一个启用了巢穴功能的生物到另一个玩家类别",
+    ["Auto Player Hider"] = "自动玩家隐藏",
+    ["Prevent other players from seeing you"] = "防止其他玩家看到你",
+    ["Auto Infinite Stamina"] = "自动无限耐力",
+    ["You will never get tired"] = "你永远不会疲劳",
+    ["Auto Custom Walk"] = "自动自定义行走",
+    ["Activating this modifies your walk animation"] = "启用后修改你的行走动画",
+    ["Auto Custom Sprint"] = "自动自定义冲刺",
+    ["Activating this modifies your sprint animation"] = "启用后修改你的冲刺动画",
+    ["Auto Custom Idle"] = "自动自定义 idle",
+    ["Activating this modifies your idle animation"] = "启用后修改你的 idle 动画",
+    ["Auto Custom Fly"] = "自动自定义飞行",
+    ["Activating this modifies your fly animation"] = "启用后修改你的飞行动画",
+    ["Auto Custom Walk (No ShiftLock)"] = "自动自定义行走（无 ShiftLock）",
+    ["Activating this modifies your walk animation. But if you deactivate it, it will return to its original animation"] = "启用后修改你的行走动画。但如果你停用它，它将返回原始动画",
+    ["Auto Custom Sprint (No ShiftLock)"] = "自动自定义冲刺（无 ShiftLock）",
+    ["Activating this modifies your sprint animation. But if you deactivate it, it will return to its original animation"] = "启用后修改你的冲刺动画。但如果你停用它，它将返回原始动画",
+    ["Combat"] = "战斗",
+    ["Aggressive Stance"] = "攻击姿态",
+    ["Removes the crouch animation and makes you aggressive"] = "移除蹲伏动画并让你变得具有攻击性",
+    ["Scared Stance"] = "恐惧姿态",
+    ["Removes the crouch animation and makes you scared"] = "移除蹲伏动画并让你变得恐惧",
+    ["Brave Stance"] = "勇敢姿态",
+    ["Removes the crouch animation and makes you brave"] = "移除蹲伏动画并让你变得勇敢",
+    ["Wise Stance"] = "智慧姿态",
+    ["Removes the crouch animation and makes you wise"] = "移除蹲伏动画并让你变得智慧",
+    ["Auto Custom Turn Radius"] = "自动自定义转向半径",
+    ["Activating this modifies your turn radius. But if you deactivate it, it will return to its original radius"] = "启用后修改你的转向半径。但如果你停用它，它将返回原始半径",
+    ["Auto Custom Walk Speed"] = "自动自定义行走速度",
+    ["Activating this modifies your walk speed"] = "启用后修改你的行走速度",
+    ["Auto Custom Sprint Speed"] = "自动自定义冲刺速度",
+    ["Activating this modifies your sprint speed"] = "启用后修改你的冲刺速度"
+}
+
+local function translateText(text)
+    if not text or type(text) ~= "string" then return text end
+    
+    if Translations[text] then
+        return Translations[text]
+    end
+    
+    for en, cn in pairs(Translations) do
+        if text:find(en) then
+            return text:gsub(en, cn)
+        end
+    end
+    
+    return text
+end
+
+local function setupTranslationEngine()
+    local success, err = pcall(function()
+        local oldIndex = getrawmetatable(game).__newindex
+        setreadonly(getrawmetatable(game), false)
+        
+        getrawmetatable(game).__newindex = newcclosure(function(t, k, v)
+            if (t:IsA("TextLabel") or t:IsA("TextButton") or t:IsA("TextBox")) and k == "Text" then
+                v = translateText(tostring(v))
+            end
+            return oldIndex(t, k, v)
+        end)
+        
+        setreadonly(getrawmetatable(game), true)
+    end)
+    
+    if not success then
+        warn("元表劫持失败:", err)
+       
+        local translated = {}
+        local function scanAndTranslate()
+            for _, gui in ipairs(game:GetService("CoreGui"):GetDescendants()) do
+                if (gui:IsA("TextLabel") or gui:IsA("TextButton") or gui:IsA("TextBox")) and not translated[gui] then
+                    pcall(function()
+                        local text = gui.Text
+                        if text and text ~= "" then
+                            local translatedText = translateText(text)
+                            if translatedText ~= text then
+                                gui.Text = translatedText
+                                translated[gui] = true
+                            end
+                        end
+                    end)
+                end
+            end
+            
+            local player = game:GetService("Players").LocalPlayer
+            if player and player:FindFirstChild("PlayerGui") then
+                for _, gui in ipairs(player.PlayerGui:GetDescendants()) do
+                    if (gui:IsA("TextLabel") or gui:IsA("TextButton") or gui:IsA("TextBox")) and not translated[gui] then
+                        pcall(function()
+                            local text = gui.Text
+                            if text and text ~= "" then
+                                local translatedText = translateText(text)
+                                if translatedText ~= text then
+                                    gui.Text = translatedText
+                                    translated[gui] = true
+                                end
+                            end
+                        end)
+                    end
+                end
+            end
+        end
+        
+        local function setupDescendantListener(parent)
+            parent.DescendantAdded:Connect(function(descendant)
+                if descendant:IsA("TextLabel") or descendant:IsA("TextButton") or descendant:IsA("TextBox") then
+                    task.wait(0.1)
+                    pcall(function()
+                        local text = descendant.Text
+                        if text and text ~= "" then
+                            local translatedText = translateText(text)
+                            if translatedText ~= text then
+                                descendant.Text = translatedText
+                            end
+                        end
+                    end)
+                end
+            end)
+        end
+        
+        pcall(setupDescendantListener, game:GetService("CoreGui"))
+        local player = game:GetService("Players").LocalPlayer
+        if player and player:FindFirstChild("PlayerGui") then
+            pcall(setupDescendantListener, player.PlayerGui)
+        end
+        
+        while
