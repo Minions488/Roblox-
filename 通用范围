@@ -1,0 +1,157 @@
+-- Hitbox Expander + 缩小版 UI（手机友好）
+-- 小条更小，面板更紧凑
+
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local StarterGui = game:GetService("StarterGui")
+
+local LocalPlayer = Players.LocalPlayer
+
+local HITBOX_SIZE = 12
+local HITBOX_TRANSPARENCY = 0
+
+-- hitbox 逻辑
+local conn = RunService.RenderStepped:Connect(function()
+    for _, player in Players:GetPlayers() do
+        if player ~= LocalPlayer and player.Character then
+            local head = player.Character:FindFirstChild("Head")
+            if head then
+                head.Size = Vector3.new(HITBOX_SIZE, HITBOX_SIZE, HITBOX_SIZE)
+                head.Transparency = HITBOX_TRANSPARENCY
+                head.BrickColor = BrickColor.new("Lime green")
+                head.Material = Enum.Material.Neon
+                head.CanCollide = false
+            end
+        end
+    end
+end)
+
+-- UI - 缩小版
+task.wait(3)
+
+local sg = Instance.new("ScreenGui")
+sg.Parent = LocalPlayer:WaitForChild("PlayerGui")
+sg.IgnoreGuiInset = true
+sg.DisplayOrder = 10
+
+-- 小条（常驻，更小）
+local bar = Instance.new("Frame")
+bar.Name = "HitboxBar"
+bar.Size = UDim2.new(0, 140, 0, 50)          -- 缩小
+bar.Position = UDim2.new(1, -160, 0, 30)     -- 右上角
+bar.BackgroundColor3 = Color3.fromRGB(30, 30, 40)
+bar.BorderSizePixel = 0
+bar.Parent = sg
+
+local barCorner = Instance.new("UICorner")
+barCorner.CornerRadius = UDim.new(0, 12)
+barCorner.Parent = bar
+
+local sizeLabel = Instance.new("TextLabel")
+sizeLabel.Size = UDim2.new(0.6, 0, 1, 0)
+sizeLabel.BackgroundTransparency = 1
+sizeLabel.Text = "大小: " .. HITBOX_SIZE
+sizeLabel.TextColor3 = Color3.fromRGB(180, 255, 180)
+sizeLabel.TextSize = 20                       -- 字体缩小
+sizeLabel.Font = Enum.Font.GothamBold
+sizeLabel.Parent = bar
+
+local toggleBtn = Instance.new("TextButton")
+toggleBtn.Size = UDim2.new(0, 50, 0, 50)      -- 按钮缩小但仍易点
+toggleBtn.Position = UDim2.new(1, -55, 0, 0)
+toggleBtn.BackgroundColor3 = Color3.fromRGB(60, 180, 80)
+toggleBtn.Text = "+"
+toggleBtn.TextColor3 = Color3.new(1,1,1)
+toggleBtn.TextSize = 32
+toggleBtn.Font = Enum.Font.GothamBold
+toggleBtn.Parent = bar
+
+local btnCorner = Instance.new("UICorner")
+btnCorner.CornerRadius = UDim.new(0, 10)
+btnCorner.Parent = toggleBtn
+
+-- 展开面板（更小）
+local panel = Instance.new("Frame")
+panel.Name = "HitboxPanel"
+panel.Size = UDim2.new(0, 240, 0, 160)        -- 缩小
+panel.Position = UDim2.new(1, -260, 0, 90)
+panel.BackgroundColor3 = Color3.fromRGB(30, 30, 40)
+panel.Visible = false
+panel.Parent = sg
+
+local panelCorner = Instance.new("UICorner")
+panelCorner.CornerRadius = UDim.new(0, 12)
+panelCorner.Parent = panel
+
+local inputBox = Instance.new("TextBox")
+inputBox.Size = UDim2.new(0.85, 0, 0, 60)
+inputBox.Position = UDim2.new(0.075, 0, 0.15, 0)
+inputBox.BackgroundColor3 = Color3.fromRGB(50, 50, 65)
+inputBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+inputBox.PlaceholderText = "1~30"
+inputBox.Text = tostring(HITBOX_SIZE)
+inputBox.TextSize = 32                        -- 字体适中
+inputBox.Font = Enum.Font.Gotham
+inputBox.ClearTextOnFocus = false
+inputBox.Parent = panel
+
+local inputCorner = Instance.new("UICorner")
+inputCorner.CornerRadius = UDim.new(0, 10)
+inputCorner.Parent = inputBox
+
+local confirmBtn = Instance.new("TextButton")
+confirmBtn.Size = UDim2.new(0.85, 0, 0, 60)
+confirmBtn.Position = UDim2.new(0.075, 0, 0.55, 0)
+confirmBtn.BackgroundColor3 = Color3.fromRGB(80, 200, 120)
+confirmBtn.Text = "确认"
+confirmBtn.TextColor3 = Color3.new(1,1,1)
+confirmBtn.TextSize = 32
+confirmBtn.Font = Enum.Font.GothamBold
+confirmBtn.Parent = panel
+
+local confirmCorner = Instance.new("UICorner")
+confirmCorner.CornerRadius = UDim.new(0, 10)
+confirmCorner.Parent = confirmBtn
+
+-- 切换函数
+local function togglePanel()
+    panel.Visible = not panel.Visible
+    if panel.Visible then
+        toggleBtn.Text = "−"
+        toggleBtn.BackgroundColor3 = Color3.fromRGB(200, 80, 60)
+    else
+        toggleBtn.Text = "+"
+        toggleBtn.BackgroundColor3 = Color3.fromRGB(60, 180, 80)
+    end
+end
+
+toggleBtn.Activated:Connect(togglePanel)
+toggleBtn.MouseButton1Click:Connect(togglePanel)
+toggleBtn.TouchTap:Connect(togglePanel)
+
+-- 确认大小
+local function confirmSize()
+    local num = tonumber(inputBox.Text)
+    if num and num >= 1 and num <= 30 then
+        HITBOX_SIZE = num
+        sizeLabel.Text = "大小: " .. HITBOX_SIZE
+        StarterGui:SetCore("SendNotification", {
+            Title = "已更新",
+            Text = "大小: " .. HITBOX_SIZE,
+            Duration = 3
+        })
+    else
+        inputBox.Text = tostring(HITBOX_SIZE)
+    end
+end
+
+confirmBtn.Activated:Connect(confirmSize)
+confirmBtn.MouseButton1Click:Connect(confirmSize)
+
+StarterGui:SetCore("SendNotification", {
+    Title = "缩小版 UI",
+    Text = "右上角小条更小了\n点 + 展开，点 - 收起\n输入数字点确认调节",
+    Duration = 10
+})
+
+print("缩小版 UI 已加载 | 右上角小条")
